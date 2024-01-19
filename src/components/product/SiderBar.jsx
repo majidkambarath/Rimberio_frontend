@@ -1,19 +1,25 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaSortDown } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { setCategories } from "../../store/slice/categorySlice";
+import { setPriceDate } from "../../store/slice/priceSlice";
 export default function SiderBar() {
+  const dispatch = useDispatch();
   const [hideSections, setHideSections] = useState({
     collections: false,
     price: false,
   });
-
+  const [selectCategory, setSelectCategory] = useState("");
   const [category, setCategory] = useState([]);
   const [price, setPrice] = useState([
+    "SHOW ALL",
     "10-50",
     "50-100",
     "100-150",
     "150-200",
     "200-250",
+    
   ]);
   useEffect(() => {
     const fetch = () => {
@@ -44,10 +50,20 @@ export default function SiderBar() {
           </div>
         </div>
         {hideSections.collections && (
-          <div className=" w-[200px] ml-12 mt-2 h-[150px]">
+          <div className=" w-[200px] ml-12 mt-2 h-[180px]">
+            <h1
+                  onClick={() => dispatch(setCategories(""))}
+                  className="py-2 px-2 text-gray-500 cursor-pointer font-sans "
+                >
+                  SHOW ALL
+                </h1>
             {category.map((categories, index) => {
               return (
-                <h1 key={index} className="py-2 px-2 text-gray-500 cursor-pointer font-sans ">
+                <h1
+                  key={index}
+                  onClick={() => dispatch(setCategories(categories))}
+                  className="py-2 px-2 text-gray-500 cursor-pointer font-sans "
+                >
                   {categories.toUpperCase()}
                 </h1>
               );
@@ -69,7 +85,11 @@ export default function SiderBar() {
           <div className=" w-[200px] ml-12 mt-2 h-[200px]">
             {price.map((price, index) => {
               return (
-                <h1 key={index} className="py-2 px-2 text-gray-500 cursor-pointer font-sans ">
+                <h1
+                  key={index}
+                  onClick={() => dispatch(setPriceDate(price))}
+                  className="py-2 px-2 text-gray-500 cursor-pointer font-sans "
+                >
                   {price.toUpperCase()}
                 </h1>
               );

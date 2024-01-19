@@ -2,7 +2,9 @@ import React from "react";
 import logo from "../../assets/logo.png";
 import { TiShoppingCart } from "react-icons/ti";
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function Header() {
+  const cartData = useSelector((state) => state.cart.carts);
   return (
     <>
       <div className="w-full h-20 ">
@@ -35,7 +37,7 @@ export default function Header() {
             <span>
               {" "}
               <h1 className="text-xl font-mono inline-flex items-center justify-center w-4 h-4 ms-2  font-semibold rounded-full">
-                0
+                {cartData.length}
               </h1>
             </span>
           </button>
