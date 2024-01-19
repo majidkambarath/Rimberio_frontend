@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+// /** @type {import('tailwindcss').Config} */
+const withMT = require("@material-tailwind/react/utils/withMT");
+module.exports = withMT({
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -8,6 +9,7 @@ export default {
         Montserrat: ["Montserrat Alternates", "sans-serif"],
         Open: ["Open Sans", "sans-serif"],
        Dance: ["Dancing Script", "cursive"],
+      Bla: ["Black Ops One", "system-ui"]
       },
       backgroundImage: theme => ({
         'bg1': "url('/src/assets/bg1.jpg')",
@@ -22,4 +24,4 @@ export default {
     },
   },
   plugins: [],
-};
+});

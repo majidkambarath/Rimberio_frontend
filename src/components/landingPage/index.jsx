@@ -2,7 +2,7 @@ import React from 'react'
 import Head from './Head'
 import Grid from './Grid'
 import ProductList from './ProductList'
-import FooterDiv from './Footer'
+import FooterDiv from '../common/Footer'
 
 export default function LandingPage() {
   return (

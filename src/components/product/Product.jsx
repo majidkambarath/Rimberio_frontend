@@ -1,9 +1,17 @@
-import React from 'react'
-
-export default function Product() {
+import React from "react";
+import Head from "../common/Header";
+import Footer from "../common/Footer";
+import Lists from "./Lists";
+import SiderBar from "./SiderBar";
+export default function ProductList() {
   return (
     <>
-    <h1>ew</h1>
+      <Head />
+      <div className="flex">
+        <SiderBar/>
+      <Lists />
+      </div>
+     <Footer/>
     </>
-  )
+  );
 }
