@@ -7,6 +7,7 @@ import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../../store/slice/cartSlice";
+import toast from "react-hot-toast";
 export default function Lists() {
   const dispatch = useDispatch();
   const categoryState = useSelector((state) => state.categories.Categories);
@@ -79,6 +80,15 @@ export default function Lists() {
         ...prevItems,
         [item.id]: true,
       }));
+      toast.success(`Added ${item.title.substring(0, 12)} to the cart!`, {
+        position: "top-right",
+        autoClose: 3000, // Close the toast after 3000 milliseconds (adjust as needed)
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 

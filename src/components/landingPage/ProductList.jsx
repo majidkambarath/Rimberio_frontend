@@ -5,7 +5,8 @@ import axios from "axios";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import { addItem } from "../../store/slice/cartSlice";
-import {useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { toast } from "react-hot-toast";
 export default function ProductList() {
   const dispatch = useDispatch();
   const stars = Array.from({ length: 5 }, (_, i) => i + 1);
@@ -43,7 +44,16 @@ export default function ProductList() {
         ...prevItems,
         [item.id]: true,
       }));
-    }
+      toast.success(`Added ${item.title.substring(0, 12)} to the cart!`, {
+        position: "top-right",
+        autoClose: 3000, // Close the toast after 3000 milliseconds (adjust as needed)
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    };
   };
   return (
     <>
@@ -62,9 +72,10 @@ export default function ProductList() {
                   alt="prodectImage"
                 />
                 <button className="ml-10 -mt-36">
-                <h1 className="text-xl text-red-400 "><FaHeart/></h1>
+                  <h1 className="text-xl text-red-400 ">
+                    <FaHeart />
+                  </h1>
                 </button>
-                
               </div>
 
               <div>
@@ -87,36 +98,36 @@ export default function ProductList() {
               </h1>
               <h1 className="font-sans">{item.description.substring(0, 30)}</h1>
               <div className="mt-5 flex  ">
-              {isItemInCart ? (
-                    <button
-                      key={item.id}
-                      onClick={() => handleAddToCart(item)}
-                      className="bg-red-400 flex  text-white h-12  w-36 text-3xl py-1  "
+                {isItemInCart ? (
+                  <button
+                    key={item.id}
+                    onClick={() => handleAddToCart(item)}
+                    className="bg-red-400 flex  text-white h-12  w-36 text-3xl py-1  "
+                  >
+                    <h1 className="mt-2 w-36 font-mono ml-2 text-sm ">
+                      ADD MORE
+                    </h1>
+                  </button>
+                ) : (
+                  <button
+                    key={item.id}
+                    onMouseEnter={() => handleMouseEnter(item.id)}
+                    onMouseLeave={() => handleMouseLeave()}
+                    onClick={() => handleAddToCart(item)}
+                    className={`bg-red-400 flex  text-white h-12 ${
+                      hoveredIndex === item.id ? "w-40" : "w-13"
+                    }     text-3xl px-3 py-2`}
+                  >
+                    <FaBagShopping className="" />
+                    <h1
+                      className={`${
+                        hoveredIndex === item.id ? "block" : "hidden"
+                      } mt-2 w-36 font-mono ml-4 text-sm`}
                     >
-                      <h1 className="mt-2 w-36 font-mono ml-2 text-sm ">
-                        ADD MORE
-                      </h1>
-                    </button>
-                  ) : (
-                    <button
-                      key={item.id}
-                      onMouseEnter={() => handleMouseEnter(item.id)}
-                      onMouseLeave={() => handleMouseLeave()}
-                      onClick={() => handleAddToCart(item)}
-                      className={`bg-red-400 flex  text-white h-12 ${
-                        hoveredIndex === item.id ? "w-40" : "w-13"
-                      }     text-3xl px-3 py-2`}
-                    >
-                      <FaBagShopping className="" />
-                      <h1
-                        className={`${
-                          hoveredIndex === item.id ? "block" : "hidden"
-                        } mt-2 w-36 font-mono ml-4 text-sm`}
-                      >
-                        ADD TO CART
-                      </h1>
-                    </button>
-                  )}
+                      ADD TO CART
+                    </h1>
+                  </button>
+                )}
                 <h1 className="ml-6 mt-2 text-2xl font-Dance ">
                   ${item.price}
                 </h1>
