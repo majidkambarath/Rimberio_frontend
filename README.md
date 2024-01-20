@@ -1,8 +1,20 @@
-# React + Vite
+# Rimberio Frontend
+Rimberio Frontend is a dynamic e-commerce platform designed to provide users with a seamless and intuitive shopping experience. The main features focus on showcasing product details, managing the shopping cart, and implementing effective filtering options.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
 
-Currently, two official plugins are available:
+- Product Showcase: Browse through a wide range of products with detailed descriptions and images.
+- Shopping Cart: Easily add and manage items in the shopping cart for a convenient shopping experience.
+- Filter Options: Efficiently filter products based on various criteria to find exactly what you're looking for.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Technologies
+
+- React
+- Axios
+- React Router
+- React Icons
+- Toasty
+- Redux
+- Hooks
+- React DOM
