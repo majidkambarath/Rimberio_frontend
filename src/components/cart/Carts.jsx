@@ -51,18 +51,18 @@ export default function Carts() {
                           </p>
                         </div>
                         <div className=" mt-7 flex">
-                          <button onClick={() => handleIncrement(item.item)}>
-                            <FaPlus />
-                          </button>
-                          <h3 className="text-lg ml-6 font-semibold sm:pr-8">
-                            {item.quantity}
-                          </h3>
                           <button onClick={() => handleDecrement(item.item)}>
                             <FaMinus />
                           </button>
+                          <h3 className="text-lg ml-5  font-semibold sm:pr-8">
+                            {item.quantity}
+                          </h3>
+                          <button onClick={() => handleIncrement(item.item)}>
+                            <FaPlus className="-ml-4" />
+                          </button>
                         </div>
                         <div className="text-right">
-                          <p className="text-lg font-semibold">
+                          <p className="text-lg font-semibold mt-7">
                             $ {item.quantity * item.item.price}
                           </p>
                         </div>
@@ -117,11 +117,10 @@ export default function Carts() {
                   Looks like you haven't added any items to your cart yet.
                 </p>
                 <NavLink to={"/product"}>
-                <button className="mt-4 px-6 py-2 bg-red-200 text-white rounded hover:bg-red-300 focus:outline-none focus:ring focus:border-red-400">
-                  Continue Shopping
-                </button>
+                  <button className="mt-4 px-6 py-2 bg-red-200 text-white rounded hover:bg-red-300 focus:outline-none focus:ring focus:border-red-400">
+                    Continue Shopping
+                  </button>
                 </NavLink>
-               
               </div>
             </div>
           )}

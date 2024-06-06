@@ -1,5 +1,5 @@
 import React from "react";
-import Head from "../common/Header";
+import Head from "../common/Navbar";
 import Footer from "../common/Footer";
 import Lists from "./Lists";
 import SiderBar from "./SiderBar";
@@ -8,7 +8,7 @@ export default function ProductList() {
     <>
       <Head />
       <div className="flex">
-        <SiderBar/>
+        <SiderBar />
       <Lists />
       </div>
      <Footer/>

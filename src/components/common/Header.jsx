@@ -7,7 +7,7 @@ export default function Header() {
   const cartData = useSelector((state) => state.cart.carts);
   return (
     <>
-      <div className="w-full h-20 ">
+      <div className="w-full h-20 relative ">
         <Link to={"/"}>
           <img
             className="h-28  ml-5 sm:ml-3 md:ml-9 cursor-pointer"

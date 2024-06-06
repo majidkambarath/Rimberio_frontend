@@ -37,7 +37,7 @@ export default function SiderBar() {
   };
   return (
     <>
-      <div className="mt-10 w-2/6 h-screen">
+      <div className="mt-10 w-2/6 h-screen hidden md:block">
         <div className="flex justify-center mt-20 mr-28">
           <div className="flex">
             <h1 className="text-xl font-sans">Collections </h1>

@@ -1,5 +1,5 @@
 import React from "react";
-import Head from "../components/common/Header";
+import Head from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 import Carts from "../components/cart/Carts";
 import Payment from "../components/cart/payment";
@@ -7,7 +7,7 @@ export default function CartPage() {
   return (
     <div>
       <Head />
-      <div className="flex">
+      <div className="flex ">
         <Carts />
         <Payment />
       </div>

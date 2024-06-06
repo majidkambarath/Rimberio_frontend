@@ -9,7 +9,8 @@ module.exports = withMT({
         Montserrat: ["Montserrat Alternates", "sans-serif"],
         Open: ["Open Sans", "sans-serif"],
        Dance: ["Dancing Script", "cursive"],
-      Bla: ["Black Ops One", "system-ui"]
+      Bla: ["Black Ops One", "system-ui"],
+      sans: ['Roboto', 'Arial', 'sans-serif'],
       },
       backgroundImage: theme => ({
         'bg1': "url('/src/assets/bg1.jpg')",

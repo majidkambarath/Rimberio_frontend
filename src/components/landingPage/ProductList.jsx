@@ -4,6 +4,7 @@ import { FaBagShopping } from "react-icons/fa6";
 import axios from "axios";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
+
 import { addItem } from "../../store/slice/cartSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
@@ -58,7 +59,7 @@ export default function ProductList() {
   return (
     <>
       <h1 className="text-3xl font-Montserrat font-bold flex justify-center mt-10  ">
-        Top Products of This Week
+      TOP SELLING PRODUCTS
       </h1>
       <div className=" w-[1100px] h-[800px]   ml-[110px] mt-14 grid grid-flow-row-dense grid-cols-4  gap-16">
         {item.map((item) => {

@@ -9,7 +9,10 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
+      console.log("Action Payload:", action.payload);
+      console.log("Current State:", state);
       const { id, item, quantity } = action.payload;
+      console.log(typeof(id))
       const existingItemIndex = state.carts.findIndex(
         (cartItem) => cartItem.id === id
       );
@@ -54,7 +57,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, incrementQuantity, decrementQuantity , removeItem } =
-  cartSlice.actions;
+export const { addItem, incrementQuantity, decrementQuantity , removeItem } =  cartSlice.actions;
 
 export default cartSlice.reducer;
